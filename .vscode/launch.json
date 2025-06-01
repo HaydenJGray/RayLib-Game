@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Built Program",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/main",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true, // Set to true to launch with an external terminal, false for regular behavior
+      "MIMode": "lldb",
+      "preLaunchTask": "Build with Make"
+    }
+  ]
+}
