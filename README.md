@@ -1,11 +1,13 @@
 # My C + Raylib Learning Project/Game
 
+<!-- VERSION LINE -->
+**Version:** 0.0.2-pre-alpha
 ## Description
 A project to learn C using manual compilation and libraries. Using Raylib to make a game!
 
 ## How to Build
 ```bash
-clang src/main.c -Iinclude $(pkg-config --cflags --libs raylib) -o build/main
+clang src/main.c -Iinclude $(pkg-config --cflags --libs raylib) -o build/main # Mac
 ```
 
 ## Notes
