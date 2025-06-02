@@ -13,11 +13,13 @@ INCLUDE_DIR := include
 
 # Detect OS
 ifeq ($(OS),Windows_NT)
+	OS := windows
 	TARGET = build/$(NAME).exe
 	CC = gcc
 	CFLAGS = -Wall -Wextra -Iinclude
 	LDFLAGS = -lraylib -lmingw32 -lopengl32 -lgdi32 -lwinmm
 else
+	OS := mac
 	TARGET = build/$(NAME)
 	CC = clang
 	PKG = raylib

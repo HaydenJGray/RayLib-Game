@@ -2,16 +2,16 @@
 #
 # Commands:
 # 	make						- runs 'make all'
-# 	make all					- builds and runs for current OS
+# 	make all					- builds and runs for current os
 #	make windows				- builds and runs for windows
 #	make mac					- builds and runs for mac
-#	make build					- builds current OS version
+#	make build					- builds current os version
 # 	make build-windows			- builds windows version
 # 	make build-mac				- builds mac version
-# 	make run					- runs current OS build
+# 	make run					- runs current os build
 #	make run-windows			- runs windows build
 # 	make run-mac				- runs mac build
-# 	make clean 					- removes current OS build
+# 	make clean 					- removes current os build
 #	make clean-windows 			- removes windows build
 #	make clean-mac				- removes mac build
 # 	make clean-all				- removes build folder
@@ -29,13 +29,13 @@ all: build run
 windows: build-windows run-windows
 mac: build-mac run-mac
 
-build:
+build: update-version
 	mkdir -p build
 	$(CC) $(SRC) -o $(TARGET) $(CFLAGS) $(LDFLAGS)
-build-windows: 
+build-windows: update-version-windows
 	mkdir -p build
 	gcc $(SRC) -o build/$(NAME).exe -Wall -Wextra -Iinclude -lraylib -lmingw32 -lopengl32 -lgdi32 -lwinmm
-build-mac:
+build-mac: update-version-mac
 	mkdir -p build
 	clang $(SRC) -o build/$(NAME) -Wall -Wextra -Iinclude $(shell pkg-config --cflags $(PKG)) $(shell pkg-config --libs $(PKG))
 
@@ -47,11 +47,11 @@ run-mac:
 	./build/$(NAME)
 
 clean:
-	rm -f $(TARGET)
+	rm -rf $(TARGET)
 clean-windows:
-	rm -f build/$(NAME).exe
+	rm -rf build/$(NAME).exe
 clean-mac:
-	rm -f build/$(NAME)
+	rm -rf build/$(NAME)
 clean-all:
 	rm -rf build
 

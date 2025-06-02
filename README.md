@@ -1,7 +1,7 @@
 # My C + Raylib Learning Project/Game
 
 <!-- VERSION LINE -->
-**Version:** 0.0.2-pre-alpha
+**Version:** 0.0.0-pre-alpha
 ## Description
 A project to learn C using manual compilation and libraries. Using Raylib to make a game!
 
