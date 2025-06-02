@@ -29,13 +29,13 @@ all: build run
 windows: build-windows run-windows
 mac: build-mac run-mac
 
-build: update-version
+build: update-version clean
 	mkdir -p build
 	$(CC) $(SRC) -o $(TARGET) $(CFLAGS) $(LDFLAGS)
-build-windows: update-version-windows
+build-windows: update-version-windows clean-windows
 	mkdir -p build
 	gcc $(SRC) -o build/$(NAME).exe -Wall -Wextra -Iinclude -lraylib -lmingw32 -lopengl32 -lgdi32 -lwinmm
-build-mac: update-version-mac
+build-mac: update-version-mac clean-mac
 	mkdir -p build
 	clang $(SRC) -o build/$(NAME) -Wall -Wextra -Iinclude $(shell pkg-config --cflags $(PKG)) $(shell pkg-config --libs $(PKG))
 

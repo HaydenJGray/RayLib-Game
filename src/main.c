@@ -2,7 +2,12 @@
 #include "game.h"
 
 int main(void){
-    printf("Program Launched\n");
+    printf("Initializing Game... ");
+    #ifdef VERSION
+    printf("| Version: %s\n", VERSION);
+    #else
+    printf("Version not defined.\n");
+    #endif
 
     InitGame();
     RunGameLoop();

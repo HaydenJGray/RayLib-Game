@@ -6,12 +6,12 @@
       "name": "Run Built Program",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/main",
+      "program": "${workspaceFolder}/build/Raylib-Game-0.0.3-pre-alpha",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
-      "externalConsole": true, // Set to true to launch with an external terminal, false for regular behavior
+      "externalConsole": true,
       "MIMode": "lldb",
       "preLaunchTask": "Build with Make"
     }

@@ -26,3 +26,6 @@ else
 	CFLAGS = -Wall -Wextra -Iinclude $(shell pkg-config --cflags $(PKG))
 	LDFLAGS = $(shell pkg-config --libs $(PKG))
 endif
+
+CFLAGS += -DVERSION=\"$(VERSION)\"
+CFLAGS += -DNAME=\"$(NAME)\"
