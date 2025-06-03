@@ -16,7 +16,7 @@
 include make/common.mk
 
 # Always execute commands
-.PHONY: dist dist-windows dist-mac release release-windows release-mac clean-release update-version update-version-windows update-version-mac update-readme-windows update-readme-mac update-launch
+.PHONY: dist dist-windows dist-mac release release-windows release-mac clean-release update-version update-version-windows update-version-mac update-readme-windows update-readme-mac update-launch-mac
 
 dist: dist-$(OS)
 dist-windows: build-windows
@@ -58,15 +58,15 @@ clean-release:
 	rm -rf $(RELEASE_DIR)
 	
 update-version: update-version-$(OS)
-update-version-windows: update-readme-windows update-launch
+update-version-windows: update-readme-windows
 	@echo $(VERSION)
-update-version-mac: update-readme-mac update-launch
+update-version-mac: update-readme-mac update-launch-mac
 	@echo $(VERSION)
 
 update-readme-windows: 
 	sed -i "/<!-- VERSION LINE -->/!b;n;c\\**Version:** $(VERSION)" README.md
-update-readme-mac: 
-	@sed -i '' -e '/<!-- VERSION LINE -->/ {n; s/.*/**Version:** $(VERSION)/;}' README.md
+update-readme-mac:
+	sed -i '' -e '/<!-- VERSION LINE -->/ {n; s/.*/**Version:** $(VERSION)/;}' README.md
 
-update-launch:
+update-launch-mac:
 	sed -i '' "/\"program\"/s|build/.*\"|build/$(NAME)\"|" .vscode/launch.json

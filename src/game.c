@@ -13,8 +13,7 @@ void InitGame(void)
     #ifdef NAME
     snprintf(gameTitle, sizeof(gameTitle), "%s", NAME);
     #else
-    //strcpy(gameTitle, "Game");
-    strcpy(VERSION, "Game");
+    //strcpy(gameTitle, "Game"
     #endif
     // Use Raylib to initialize the window, input screen width, height, and name for title bar.
     InitWindow(screenWidth, screenHeight, gameTitle);
